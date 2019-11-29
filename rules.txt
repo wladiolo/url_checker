@@ -1,0 +1,39 @@
+# list of rules
+# a rule have this format
+# <commands>@<checks>
+# <commands> are "|" separeted commands
+# <checks> are "|" separated checks
+#
+# Commands: <proto>|u|<port>|<path>
+# <proto>: the protocol for the connection (e.g. http, https)
+# u: get the url from -f or -u 
+# <port>: use "p" to get port from -f or -p, or put a port number (e.g. 8080), or leave empty
+# <path>: use "t" to get path from -f or -t, or leave empty
+#
+# Checks: <webtech>|<certificate>
+# <webtech>: use "w" to execute the webtech tool on the url (TO BE IMPLEMENTED)
+# <certificate>: use "c" to check certificate validity (TO BE IMPLEMENTED)
+# 
+# You must always specify all the commands (even if they are empty). Checks are optional
+#   
+
+# check http://url
+http|u||
+
+# check http://url:port/path
+http|u|p|t
+
+# check https://url:port
+#https|u|p|
+
+# check https://url/path
+http|u||t
+
+# check https://url:9443
+#https|u|9443|
+
+# check http://u and its technology (TO BE IMPLEMENTED)
+# https|u||@w
+
+# check https://url and its certificate (TO BE IMPLEMENTED)
+# https|u||@|c
